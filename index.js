@@ -146,3 +146,5 @@ const finish = () => {
     });
   });
 };
+
+promptManager();
