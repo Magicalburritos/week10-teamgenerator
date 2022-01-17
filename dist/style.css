@@ -1,0 +1,31 @@
+h1 {
+  font-size: 100px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: rgb(178, 34, 34);
+  margin-top: 0px;
+  padding: 0x;
+  text-align: center;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+.card {
+  margin: 30px;
+  display: flex;
+  float: left;
+  text-align: left;
+  border: 3px solid chartreuse;
+}
+.card-header {
+  font-size: 20px;
+  background-color: rgb(0, 128, 255);
+  text-align: center;
+}
+main {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
