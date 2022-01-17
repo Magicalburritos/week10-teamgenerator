@@ -1,11 +1,8 @@
-const Manager = require('./lib/Manager.js');
-const Intern = require('./lib/Intern');
-const Engineer = require('./lib/Engineer');
-
+// creates team
 const generateTeam = (team) => {
   const html = [];
 
-  // creates manager section
+  //  manager
   const generateManager = (manager) => {
     let managerHtml = `
 <div class="card" style="width: 18rem;">
@@ -15,7 +12,7 @@ const generateTeam = (team) => {
     </div>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${manager.id}</li>
-<li class="list-group-item">Email: <a href='${manager.email}'>${manager.email}</a></li>
+<li class="list-group-item">Email: <a href='mailto: ${manager.email}'>${manager.email}</a></li>
 <li class="list-group-item">Call: ${manager.officeNumber}</li>
 </ul>
 </div>
@@ -23,7 +20,7 @@ const generateTeam = (team) => {
     html.push(managerHtml);
   };
 
-  // creates engineer section
+  //  engineer
   const generateEngineer = (engineer) => {
     let engineerHtml = `
     <div class="card" style="width: 18rem;">
@@ -33,7 +30,7 @@ const generateTeam = (team) => {
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${engineer.id}</li>
-        <li class="list-group-item">Email: <a href="m${engineer.email}">${engineer.email}</a></li>
+        <li class="list-group-item">Email: <a href="mailto: ${engineer.email}">${engineer.email}</a></li>
         <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${engineer.github}">${engineer.github}</a></li>
     </ul>
 </div>
@@ -41,7 +38,7 @@ const generateTeam = (team) => {
     html.push(engineerHtml);
   };
 
-  // creates intern section
+  //  intern
   const generateIntern = (intern) => {
     let internHtml = `
     <div class="card" style="width: 18rem;">
@@ -51,15 +48,13 @@ const generateTeam = (team) => {
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${intern.id}</li>
-        <li class="list-group-item">Email: <a href='${intern.email}'>${intern.email}</a></li>
+        <li class="list-group-item">Email: <a href='mailto:${intern.email}'>${intern.email}</a></li>
         <li class="list-group-item">School: ${intern.school}</li>
     </ul>
 </div>
     `;
     html.push(internHtml);
   };
-
-  // loop created for employees
 
   for (let i = 0; i < team.length; i++) {
     if (team[i].getRole() === 'Manager') {
@@ -71,13 +66,13 @@ const generateTeam = (team) => {
     }
   }
 
-  //  join all together
+  //  joins all
 
   return html.join('');
 };
 
 module.exports = (team) => {
-  console.log('this is my team', team);
+  console.log('Hello Team', team);
   return `
   <!DOCTYPE html>
   <html lang="en">

@@ -2,6 +2,10 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./page.js');
 
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+
 const teamMembers = [];
 
 const promptManager = () => {
@@ -31,8 +35,8 @@ const promptManager = () => {
         message: 'Please enter your Managers Office Number',
       },
     ])
-    .then((anwsers) => {
-      teamMembers.manager.push(anwsers);
+    .then((answers) => {
+      teamMembers.manager.push(answers);
       console.log(teamMembers);
     })
     .then(promptChoice);
@@ -46,18 +50,18 @@ const promptChoice = () => {
         type: 'list',
         name: 'choice',
         message: 'please select one of the folloing',
-        choices: ['Engineer', 'Intern', 'finish'],
+        choices: ['Engineer', 'Intern', 'Finish'],
       },
     ])
-    .then((anwsers) => {
-      if (anwsers.choice === 'Engineer') {
+    .then((answers) => {
+      if (answers.choice === 'Engineer') {
         promptEngineer();
       }
-      if (anwsers.choice === 'Intern') {
+      if (answers.choice === 'Intern') {
         console.log('we made it!');
         promptIntern();
       }
-      if (anwsers === 'Finish') finish();
+      if (answers.choice === 'Finish') finish();
     });
 };
 
@@ -88,8 +92,8 @@ const promptEngineer = () => {
         message: 'Please enter Engineers Github Username',
       },
     ])
-    .then((anwsers) => {
-      teamMembers.engineer.push(anwsers);
+    .then((answers) => {
+      teamMembers.engineer.push(answers);
 
       console.log(teamMembers);
     })
@@ -122,8 +126,8 @@ const promptIntern = () => {
         message: 'Please enter the School you attend',
       },
     ])
-    .then((anwsers) => {
-      teamMembers.intern.push(anwsers);
+    .then((answers) => {
+      teamMembers.intern.push(answers);
       console.log(teamMembers);
     })
     .then(promptChoice);
