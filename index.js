@@ -129,6 +129,20 @@ const promptIntern = () => {
     .then(promptChoice);
 };
 const finish = () => {
-  generatePage(teamMembers);
+  const pageHtml = generatePage(teamMembers);
+  fs.writeFile('./dist/page.html', pageHtml, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('page created!');
+
+    fs.copyFile('./src/style.css', './dist/style.css', (err) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('css created!');
+    });
+  });
 };
-promptManager();
