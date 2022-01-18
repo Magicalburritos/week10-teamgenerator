@@ -55,9 +55,10 @@ const generateTeam = (team) => {
     `;
     html.push(internHtml);
   };
-  console.log(team.length);
+  console.log(team);
   for (let i = 0; i < team.length; i++) {
     if (team[i].getRole() === 'Manager') {
+      console.log('forloop');
       generateManager(team[i]);
     } else if (team[i].getRole() === 'Engineer') {
       generateEngineer(team[i]);
