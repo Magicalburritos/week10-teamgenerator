@@ -55,17 +55,19 @@ const generateTeam = (team) => {
     `;
     html.push(internHtml);
   };
-  console.log(team);
-  for (let i = 0; i < team.length; i++) {
-    if (team[i].getRole() === 'Manager') {
-      console.log('forloop');
-      generateManager(team[i]);
-    } else if (team[i].getRole() === 'Engineer') {
-      generateEngineer(team[i]);
-    } else if (team[i].getRole() === 'Intern') {
-      console.log(team[i]);
-      generateIntern(team[i]);
-      console.log(html);
+  const { manager, intern, engineer } = team;
+
+  for (let i = 0; i < manager.length; i++) {
+    generateManager(manager[i]);
+  }
+  if (engineer) {
+    for (let i = 0; i < engineer.length; i++) {
+      generateEngineer(engineer[i]);
+    }
+  }
+  if (intern) {
+    for (let i = 0; i < intern.length; i++) {
+      generateIntern(intern[i]);
     }
   }
 
@@ -75,7 +77,6 @@ const generateTeam = (team) => {
 };
 
 module.exports = (team) => {
-  console.log('Hello Team', team);
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -95,7 +96,7 @@ module.exports = (team) => {
   <body>
   
       <header>
-          <h1> Team Built </h1>
+          <h1> My team!</h1>
       </header>
       <main>${generateTeam(team)}</main>
   

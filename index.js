@@ -21,7 +21,7 @@ const promptManager = () => {
       },
       {
         type: 'input',
-        name: 'name',
+        name: 'id',
         message: 'please enter your Managers #id',
       },
       {
@@ -37,7 +37,6 @@ const promptManager = () => {
     ])
     .then((answers) => {
       teamMembers.manager.push(answers);
-      console.log(teamMembers);
     })
     .then(promptChoice);
 };
@@ -58,7 +57,6 @@ const promptChoice = () => {
         promptEngineer();
       }
       if (answers.choice === 'Intern') {
-        console.log('we made it!');
         promptIntern();
       }
       if (answers.choice === 'Finish') finish();
@@ -94,8 +92,6 @@ const promptEngineer = () => {
     ])
     .then((answers) => {
       teamMembers.engineer.push(answers);
-
-      console.log(teamMembers);
     })
     .then(promptChoice);
 };
@@ -128,7 +124,6 @@ const promptIntern = () => {
     ])
     .then((answers) => {
       teamMembers.intern.push(answers);
-      console.log(teamMembers);
     })
     .then(promptChoice);
 };
